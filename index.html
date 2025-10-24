@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Expense Tracker</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    input, button, select { margin: 5px; padding: 5px; }
+    ul { list-style: none; padding: 0; }
+    li { margin: 5px 0; }
+    .income { color: green; }
+    .expense { color: red; }
+    /* Transaction List */
+#list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  max-width: 700px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Each list item as a row */
+#list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 10px 16px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+  border-left: 5px solid #ccc;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect */
+#list li:hover {
+  background: #f9fafb;
+  transform: translateX(2px);
+}
+
+/* Text spacing */
+#list li span {
+  flex: 1;
+  text-align: left;
+  color: #333;
+  font-size: 15px;
+}
+
+/* Specific column widths (optional) */
+#list li span.date { flex: 1.2; color: #555; }
+#list li span.shop { flex: 1.5; }
+#list li span.category { flex: 1.2; }
+#list li span.amount { flex: 0.8; text-align: right; font-weight: 600; }
+
+/* Income / Expense color coding */
+#list li.income {
+  border-left-color: #22c55e; /* green */
+  color: #166534;
+}
+
+#list li.expense {
+  border-left-color: #ef4444; /* red */
+  color: #7f1d1d;
+}
+  </style>
+</head>
+<body>
+  <h2>💰 Expense Tracker</h2>
+
+  <div>
+    <input id="date" type="date" placeholder="date" />
+    <input id="shop" type="text" placeholder="shop" />
+
+    <select name="category" id="category">
+        <option value="food">Food</option>   
+        <option value="nonfood">NonFood</option>    
+        <option value="benzin">Benzin</option>
+        <option value="clothes">Clothes</option>
+        <option value="entertainment">Entertainment</option>
+        <option value="other">Other</option>
+    </select>
+     
+    <input id="amount" type="number" placeholder="Amount" />
+    <button id="addBtn" onclick="addTransaction()">Add</button>
+  </div>
+
+  <h3>Transactions</h3>
+  <ul id="list"></ul>
+
+  <h3>Total Balance: <span id="balance">0</span> DKK</h3>
+
+  <script src="script.js"></script>
+</body>
+</html>
